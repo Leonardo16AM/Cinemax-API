@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-namespace Cinemax.API.Models;
+namespace Cinemax.Domain.Models;
 
 public class AppDbContext:DbContext{
     public AppDbContext(DbContextOptions<AppDbContext> options):base(options)

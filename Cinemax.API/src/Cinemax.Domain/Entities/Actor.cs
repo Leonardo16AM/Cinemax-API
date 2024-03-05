@@ -1,3 +1,5 @@
+using  Cinemax.Domain.Interfaces;
+
 namespace Cinemax.API.Models
 {
     public class Actor

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cinemax.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b8ea951b584ffd50136c1bb5b96109f8aabfefe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebd84837c51cfdaa7401a3fb83b0b006c01cacda")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cinemax.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cinemax.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

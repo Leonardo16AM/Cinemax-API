@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Cinemax.API.Models
+using  Cinemax.Domain.Interfaces;
+
+namespace Cinemax.Domain.Models
 {
-    public class Movie{
-        [Required]
-        public int MovieId {get; set;}
+    public class Movie:Entity{
         [Required]
         public string? Name {get; set;}
         [Required]

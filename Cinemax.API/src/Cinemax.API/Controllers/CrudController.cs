@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.JsonPatch;
-using Cinemax.API.Models;
+
+using Cinemax.Domain.Models;
 
 
-namespace Cinemax.API.Controllers
+namespace Cinemax.Domain.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -27,7 +28,7 @@ namespace Cinemax.API.Controllers
 
         // GET: api/Movies/5
         [HttpGet("{movieId}")]
-        public async Task<ActionResult<Movie>> GetMovie(int movieId)
+        public async Task<ActionResult<Movie>> GetMovie(string movieId)
         {
             var movie = await _context.Movies.FindAsync(movieId);
 
@@ -46,12 +47,12 @@ namespace Cinemax.API.Controllers
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetMovie), new { movieId = movie.MovieId }, movie);
+            return CreatedAtAction(nameof(GetMovie), new { movieId = movie.Id }, movie);
         }
         
         // DELETE: api/Movies/5
         [HttpDelete("{movieId}")]
-        public async Task<ActionResult<Movie>> DeleteMovie(int movieId)
+        public async Task<ActionResult<Movie>> DeleteMovie(string movieId)
         {
             var movie = await _context.Movies.FindAsync(movieId);
             if (movie == null)
@@ -67,7 +68,7 @@ namespace Cinemax.API.Controllers
 
         // PATCH: api/Movies/5
         [HttpPatch("{movieId}")]
-        public async Task<ActionResult<Movie>> PatchMovie(int movieId, [FromBody] JsonPatchDocument<Movie> patchDocument)
+        public async Task<ActionResult<Movie>> PatchMovie(string movieId, [FromBody] JsonPatchDocument<Movie> patchDocument)
         {
             var movie = await _context.Movies.FindAsync(movieId);
             if (movie == null)
@@ -89,9 +90,9 @@ namespace Cinemax.API.Controllers
             return NoContent();
         }
 
-        private bool MovieExists(int movieId)
+        private bool MovieExists(string movieId)
         {
-            return _context.Movies.Any(e => e.MovieId == movieId);
+            return _context.Movies.Any(e => e.Id == movieId);
         }
 
     }
